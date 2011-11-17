@@ -107,6 +107,7 @@ public class SimpleJobRunnerTest {
 		Assert.assertEquals(999, callback.progress, 0.00001);
 		Assert.assertEquals(JobExecutionCallback.CompletionStatus.CANCELLED, callback.status);
 		Assert.assertEquals(1, errors.size());
+		//TODO Fix the test
 	}
 
 
