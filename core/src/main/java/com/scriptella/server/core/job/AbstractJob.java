@@ -5,12 +5,12 @@ import java.util.concurrent.Callable;
 
 /**
  * This class defines an API for a job runner. TODO Add a factory for
- * instantiation and configuration of {@link AbstractJobRunner}.
+ * instantiation and configuration of {@link AbstractJob}.
  * 
  * @author <a href="mailto:scriptella@gmail.com">Fyodor Kupolov</a>
  * 
  */
-public abstract class AbstractJobRunner<R> implements Callable<R> {
+public abstract class AbstractJob<R> implements Callable<R> {
 	private Writer out;
 	private JobExecutionCallback executionCallback;
 
