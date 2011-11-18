@@ -16,11 +16,11 @@ import org.junit.Test;
  * @author <a href="mailto:scriptella@gmail.com">Fyodor Kupolov</a>
  *
  */
-public class SimpleJobRunnerTest {
+public class SimpleJobTest {
 
 	@Test
 	public void test() throws Exception {
-		TestJobRunner tst = new TestJobRunner() {
+		TestJob tst = new TestJob() {
 			@Override
 			protected String execute() {
 				getExecutionCallback().setJobProgress(1);
@@ -36,7 +36,7 @@ public class SimpleJobRunnerTest {
 	@Test(timeout = 100)
 	public void testCancellationSleep() throws Exception {
 		final CountDownLatch startSignal = new CountDownLatch(1);
-		final TestJobRunner tst = new TestJobRunner() {
+		final TestJob tst = new TestJob() {
 			@Override
 			protected String execute() throws InterruptedException {
 				System.out.println(Thread.currentThread().getName() + " sending start signal");
@@ -69,7 +69,7 @@ public class SimpleJobRunnerTest {
 		final CountDownLatch signalStart = new CountDownLatch(1);
 		final CountDownLatch signalReadyToCancel = new CountDownLatch(1);
 		final CountDownLatch signalEnd = new CountDownLatch(1);
-		final TestJobRunner tst = new TestJobRunner() {
+		final TestJob tst = new TestJob() {
 			@Override
 			protected String execute() throws InterruptedException {
 				getExecutionCallback().setJobProgress(.1);
@@ -136,7 +136,7 @@ public class SimpleJobRunnerTest {
 
 	@Test()
 	public void testFailures() throws Exception {
-		final TestJobRunner tst = new TestJobRunner() {
+		final TestJob tst = new TestJob() {
 			@Override
 			protected String execute() throws Exception {
 				getExecutionCallback().setJobProgress(.1);
@@ -154,12 +154,12 @@ public class SimpleJobRunnerTest {
 		Assert.assertEquals(JobExecutionCallback.CompletionStatus.FAILED, tst.executionCallback.status);
 	}
 
-	static abstract class TestJobRunner extends SimpleJobRunner<String> {
+	static abstract class TestJob extends SimpleJob<String> {
 		volatile boolean cancelCalled;
 		final List<Throwable> errors = new ArrayList<Throwable>();
 		final TestExecutionCallback executionCallback = new TestExecutionCallback();
 
-		public TestJobRunner() {
+		public TestJob() {
 			setExecutionCallback(executionCallback);
 		}
 

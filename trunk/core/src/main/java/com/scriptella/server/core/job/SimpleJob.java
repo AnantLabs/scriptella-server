@@ -2,7 +2,7 @@ package com.scriptella.server.core.job;
 
 import com.scriptella.server.core.job.JobExecutionCallback.CompletionStatus;
 
-public abstract class SimpleJobRunner<R> extends AbstractJobRunner<R> {
+public abstract class SimpleJob<R> extends AbstractJob<R> {
 	private Thread currentThread;
 	private boolean interrupted;
 
