@@ -1,0 +1,23 @@
+<xsd:schema targetNamespace="http://scriptella.com/server/project"
+	xmlns:p="http://scriptella.com/server/project" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.0">
+	<xsd:annotation>
+		<xsd:appinfo>
+			<jaxb:schemaBindings>
+				<jaxb:package name="com.scriptella.server.project.model">
+					<jaxb:javadoc>   <![CDATA[<body> JAXB Generated data model for Projects.</body>]]></jaxb:javadoc>
+				</jaxb:package>
+			</jaxb:schemaBindings>
+		</xsd:appinfo>
+	</xsd:annotation>
+
+	<xsd:element name="project">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="project" type="xsd:anyType"></xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="type" type="xsd:string" />
+			<xsd:attribute name="name" type="xsd:string" />
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
