@@ -11,13 +11,17 @@
 		</xsd:appinfo>
 	</xsd:annotation>
 
-	<xsd:element name="project">
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="project" type="xsd:anyType"></xsd:element>
-			</xsd:sequence>
-			<xsd:attribute name="type" type="xsd:string" />
-			<xsd:attribute name="name" type="xsd:string" />
-		</xsd:complexType>
+	<xsd:element name="project" type="p:XmlProject">
 	</xsd:element>
+	<xsd:complexType name="XmlProject">
+		<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="resource">
+				<xsd:complexType>
+					<xsd:attribute name="location" type="xsd:string" />
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="type" type="xsd:string" />
+		<xsd:attribute name="name" type="xsd:string" />
+	</xsd:complexType>
 </xsd:schema>
