@@ -42,7 +42,6 @@
     <modules>
         <module>core</module>
         <module>ui</module>
-        <module>scriptella-spring-hello</module>
     </modules>
 
     <scm>
@@ -107,17 +106,32 @@
             </dependency>
             -->
 
-            <!-- LOGGING DEPENDENCIES - LOG4J -->
+            <!-- LOGGING DEPENDENCIES -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.6.4</version>
+            </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
-                <version>1.6.2</version>
+                <version>1.6.4</version>
             </dependency>
             <dependency>
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
                 <version>1.2.16</version>
             </dependency>
+			<dependency>
+			    <groupId>commons-io</groupId>
+			    <artifactId>commons-io</artifactId>
+			    <version>2.1</version>
+			</dependency>
+			<dependency>
+			    <groupId>com.javaforge.scriptella</groupId>
+			    <artifactId>scriptella-core</artifactId>
+			    <version>1.1-SNAPSHOT</version>
+			</dependency>			
         </dependencies>
 
     </dependencyManagement>
